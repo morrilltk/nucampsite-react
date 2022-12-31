@@ -44,5 +44,12 @@ export const partnersReducer = partnersSlice.reducer;
 
 export const selectAllPartners = state => state.partners.partnersArray;
 
-export const selectFeaturedPartner = state =>
-  state.partners.partnersArray.find(partner => partner.featured);
+export const selectFeaturedPartner = state => {
+  return {
+    featuredItem: state.partners.partnersArray.find(
+      partner => partner.featured
+    ),
+    isLoading: state.campsites.isLoading,
+    errMsg: state.campsites.errMsg,
+  };
+};
